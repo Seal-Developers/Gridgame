@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 
 public class draw_Grid{
+  static int [][]Adjmat = {{1,0,0,1,0},{1,0,1,0,1,},{1,1,0,1,0,},{0,1,1,1,0},{1,0,1,1,1}};
+  ArrayList<Integer> wall = new ArrayList<Integer>();
+  public ArrayList<Integer> getwalls(int [][]Adjmat){
+    
+    return wall;
+  }
   public static void print_dash(int row) {
     for(int i =0 ;i< row;i++) {
       if( i != row - 1) {
@@ -57,24 +63,24 @@ public class draw_Grid{
   }
   public static void main(String args[]) {
     int pos = 0;
-    grid_draw(5,0);
+    
+    grid_draw(5,0, Adjmat);
     System.out.println();
      for(int i =0;i<5;i++) { 
        for(int j=0;j<5;j++) { 
          if(i!= 0 && Adjmat[i][j] == 1 && Adjmat[i-1][j] == 1 && (pos % 5)<= j) {
            pos = i*5+j;
-           grid_draw(5,pos);
+           grid_draw(5,pos, Adjmat);
            System.out.println();
          }
-         else if(j!= 0 && Adjmat[i][j] == 1 && Adjmat[i][j-1] == 1&& (pos_i/ 5)<= i) {
+         else if(j!= 0 && Adjmat[i][j] == 1 && Adjmat[i][j-1] == 1&& (pos/ 5)<= i) {
            pos = i*5+j;
-           grid_draw(5,pos);
+           grid_draw(5,pos, Adjmat);
            System.out.println();
          }
          
        }
     }
      System.out.println();
-     grid_draw(5,60);
   }
 }
