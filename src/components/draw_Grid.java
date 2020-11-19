@@ -4,13 +4,6 @@ import java.util.ArrayList;
 
 
 public class draw_Grid{
-  static int pos_i = 4, pos_j = 4, venemy = 4, henemy = 3;
-  static int [][]Adjmat = {{1,0,0,1,0},{1,0,1,0,1,},{1,1,0,1,0,},{0,1,1,1,0},{1,0,1,1,1}};
-  ArrayList<Integer> wall = new ArrayList<Integer>();
-  public ArrayList<Integer> getwalls(int [][]Adjmat){
-    
-    return wall;
-  }
   public static void print_dash(int row) {
     for(int i =0 ;i< row;i++) {
       if( i != row - 1) {
@@ -18,7 +11,7 @@ public class draw_Grid{
       }
     }
   }
-  public static void grid_draw(int row, int pos) {
+  public static void grid_draw(int row, int pos, int [][]Adjmat) {
     int pos_i = pos/row, pos_j = pos%row; 
     if(pos_i >= row || pos_j>= row) {
       System.out.println("Out of bounds");
