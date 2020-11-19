@@ -1,9 +1,9 @@
 package components;
 
 
-
 public abstract class component {
 	
-	public abstract void move(int p);
+	protected int graphSize; //for one side
+	public abstract void move(int a,int b);
 	
 }

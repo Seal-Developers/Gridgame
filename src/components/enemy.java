@@ -2,25 +2,19 @@ package components;
 
 public class enemy extends component{
 	//every enemy has a location between 2 positions
-	private int[] location;
+	//(0,0)=0, (0,1)=1
+	protected int[] twoPositions;
 
-	public int[] getLocation() {
-		return location;
-	}
-
-	public void setLocation(int a,int b) {
-		this.location[0] = a;
-		this.location[1] = b;
-	}
-
-	@Override
-	//do we have any restrictions on the moving enemies
-	public void move(int p) {
-		this.location[0] = p;
+	//constructor
+	public enemy(int graphSize) {
+		this.graphSize = graphSize;
 	}
 	
-	public void move(int a, int b) {
-		this.location[0] = a;
-		this.location[1] = b;
+
+	public void move(int a,int b) {
+		
+		this.twoPositions[0] = a;
+		this.twoPositions[1] = b;
 	}
+	
 }

@@ -1,13 +1,15 @@
 package components;
 
+import java.util.ArrayList;
+
 public class character extends component{
 	
-	private int position;
+	private int oneDPosition;
 	
 	@Override
-	public void move(int p) {
+	public void move(int p,int defalt) {
 		//first check if the position is valid
-		if(p<1||p>64) {//this should be the max size
+		if(p<1||p>this.graphSize*this.graphSize) {//this should be the max size
 			System.out.println("Position out of range QAQ");
 		}
 		if(this.checkIfCollision(p)) {
@@ -19,21 +21,21 @@ public class character extends component{
 			//maybe we need to do sth to end the game?
 		}
 		//when we success
-		this.position = p;
+		this.oneDPosition = p;
 		
 	}
 	public boolean checkIfCollision(int p) {
-		ArrayList[] enermyList = getEnermies(this.position);
+		ArrayList<Integer> enermyList = Level.returnneighbors(this.oneDPosition, this.graphSize);
 		//check if there is an enermy b/t current position and "future" position
 		for(int i = 0; i<enermyList.size(); i++) {
-			if (enermyList[i]==p)
+			if ((int) enermyList.get(i)==p)
 				return true;
 		}
 		return false;
 	}
 	
 	public boolean checkIfWon() {
-		if(this.position==64)//last node position
+		if(this.oneDPosition==64)//last node position
 			return true;
 		return false;	
 	}
