@@ -1,12 +1,23 @@
 package components;
 
 import java.util.ArrayList;
+/**
+ * Represent the player character with move, checkCollision and checkIfWon methods
+ * This class extends {@link component}
+ *
+ */
 
 public class character extends component{
-	
+	/**
+	 * every character has a 1D position
+	 */
 	private int oneDPosition;
 	
 	@Override
+	/**
+	 * move the character to another 1D position and check if it collapse or win
+	 * 
+	 */
 	public void move(int p,int defalt) {
 		//first check if the position is valid
 		if(p<1||p>this.graphSize*this.graphSize) {//this should be the max size
@@ -29,13 +40,13 @@ public class character extends component{
 		//check if there is an enermy b/t current position and "future" position
 		for(int i = 0; i<enermyList.size(); i++) {
 			if ((int) enermyList.get(i)==p)
-				return true;
+				return false;
 		}
-		return false;
+		return true;
 	}
 	
 	public boolean checkIfWon() {
-		if(this.oneDPosition==64)//last node position
+		if(this.oneDPosition==this.graphSize*this.graphSize)//last node position
 			return true;
 		return false;	
 	}
