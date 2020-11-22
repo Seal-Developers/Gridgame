@@ -16,7 +16,11 @@ public class character extends component{
 	@Override
 	/**
 	 * move the character to another 1D position and check if it collapse or win
-	 * 
+	 * @param p an int representing the position goal
+	 * 		  defalut just an unused number
+	 * @return null
+	 * 		   a successful move will update the character's current position
+	 * 		   and when there is a collision or the player wins, we exit the game
 	 */
 	public void move(int p,int defalt) {
 		//first check if the position is valid
@@ -27,14 +31,19 @@ public class character extends component{
 			System.out.println("Collision Occurs!!");
 			//maybe we need to do sth to end the game?
 		}
+		//when we success
+		this.oneDPosition = p;
 		if(this.checkIfWon()){
 			System.out.println("You win LOL!!");
 			//maybe we need to do sth to end the game?
 		}
-		//when we success
-		this.oneDPosition = p;
-		
 	}
+	/**
+	 * check if the goal position will cause a collision
+	 * @param p a int representing 1d goal position
+	 * @return true if the collision occurs; false if character is safe
+	 * not finished fcn needs reachable neighboours
+	 */
 	public boolean checkIfCollision(int p) {
 		ArrayList<Integer> enermyList = Level.returnneighbors(this.oneDPosition, this.graphSize);
 		//check if there is an enermy b/t current position and "future" position
@@ -45,6 +54,10 @@ public class character extends component{
 		return true;
 	}
 	
+	/**
+	 * check if the current status of the character is at the winning place
+	 * @return
+	 */
 	public boolean checkIfWon() {
 		if(this.oneDPosition==this.graphSize*this.graphSize)//last node position
 			return true;
