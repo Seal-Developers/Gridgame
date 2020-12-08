@@ -1,18 +1,14 @@
 package components;
 
-/**
- * Represent the enemy within the graph with move method and a certain position between 2 squares
- * This class extends {@link component}
- *
- */
-public class enemy extends component{
+public class enemy{
 	/**
-	 * the int array representing the enemy's position
+	 * the int array representing the enemy's position and a related graphSize of one side
 	 */
 	//every enemy has a location between 2 nodes' positions
 	//so this is two 1D position of 2 nodes representing the enemy's position
 	//(0,0)=1, (0,1)=2
 	protected int[] twoPositions;
+	protected int graphSize;
 
 	//constructor
 	/**
@@ -29,7 +25,6 @@ public class enemy extends component{
 	 * 		  b another int 1D position of the other square next to the enemy
 	 * a,b is the goal position
 	 */
-	@Override
 	public void move(int a,int b) {
 		
 		this.twoPositions[0] = a;
