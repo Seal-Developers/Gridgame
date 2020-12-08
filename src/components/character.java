@@ -40,12 +40,16 @@ public class character extends component{
 	}
 	/**
 	 * check if the goal position will cause a collision
-	 * @param p a int representing 1d goal position
+	 * @param p an int representing 1d goal position
+	 * @param lvl an int tuple representing the 2Dlevel
 	 * @return true if the collision occurs; false if character is safe
-	 * not finished fcn needs reachable neighbors
 	 */
-	public boolean checkIfCollision(int p) {
+	public boolean checkIfCollision(int p, int[] [] lvl) {
 		ArrayList<Integer> enermyList = Level.returnneighbors(this.oneDPosition, this.graphSize);
+		for( int j = 0; j<enermyList.size(); j++) {
+			if(lvl[p-1][enermyList.get(j)-1] == 0)
+				enermyList.remove(j);
+		}
 		//check if there is an enermy b/t current position and "future" position
 		for(int i = 0; i<enermyList.size(); i++) {
 			if ((int) enermyList.get(i)==p)
