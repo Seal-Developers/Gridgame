@@ -1,86 +1,30 @@
 package components;
 
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
-
 public class draw_Grid{
-  static int [][]Adjmat = {{1,0,0,1,0},{1,0,1,0,1,},{1,1,0,1,0,},{0,1,1,1,0},{1,0,1,1,1}};
-  ArrayList<Integer> wall = new ArrayList<Integer>();
-  public ArrayList<Integer> getwalls(int [][]Adjmat){
-    
-    return wall;
-  }
-  public static void print_dash(int row) {
-    for(int i =0 ;i< row;i++) {
-      if( i != row - 1) {
-        System.out.print("___ ");
-      }
-    }
-  }
-  public static void grid_draw(int row, int pos, int [][]Adjmat) {
-    int pos_i = pos/row, pos_j = pos%row; 
-    if(pos_i >= row || pos_j>= row) {
-      System.out.println("Out of bounds");
-      return;
-    }
-    for(int i = 0; i < row; i++ ) {
-      System.out.print(" ");
-      for(int j =0 ;j< row;j++) {
-        if(i!= 0 && Adjmat[i][j] == 1 && Adjmat[i-1][j] == 1) {
-          System.out.print("    ");
-        }
-        else if(i == 0 && j == 0) {
-          System.out.print("    ");
-        }
-        else {
-          System.out.print("___ ");
-        }
-      }
-      System.out.println();
-      for(int j =0;j < row;j++) {
-        
-       if(j!= 0 && Adjmat[i][j] == 1 && Adjmat[i][j-1] == 1 ) {
-         if(pos_i == i && pos_j == j) {
-           System.out.print(" c  ");
-         }
-         else {
-           System.out.print("    ");
-         }
-        }
-        else {
-          if(pos_i == i && pos_j == j) {
-            System.out.print("| c ");
-          }
-          else {
-            System.out.print("|   ");
-          }
-        }
-      }
-      System.out.println("|");
-    }
-    System.out.print(" ");
-    print_dash(row);
-  }
-  public static void main(String args[]) {
-    int pos = 0;
-    
-    grid_draw(5,0, Adjmat);
-    System.out.println();
-     for(int i =0;i<5;i++) { 
-       for(int j=0;j<5;j++) { 
-         if(i!= 0 && Adjmat[i][j] == 1 && Adjmat[i-1][j] == 1 && (pos % 5)<= j) {
-           pos = i*5+j;
-           grid_draw(5,pos, Adjmat);
-           System.out.println();
-         }
-         else if(j!= 0 && Adjmat[i][j] == 1 && Adjmat[i][j-1] == 1&& (pos/ 5)<= i) {
-           pos = i*5+j;
-           grid_draw(5,pos, Adjmat);
-           System.out.println();
-         }
-         
-       }
-    }
-     System.out.println();
+	static int[][] AdjMat;
+	static Graphics g;
+	static BufferStrategy bs;
+	public draw_Grid(int[][] AdjMat, Graphics g, BufferStrategy bs) {
+		this.AdjMat = new int[AdjMat.length][AdjMat.length];
+		this.AdjMat = AdjMat;
+		this.g = g;
+		this.bs = bs;
+	}
+  public static void drawLevel() {
+	  int row = AdjMat.length,cod;
+	  g.drawLine(200,200,250,200);
+	  ArrayList<Integer> neigh;
+	  for(int i = 1;i <= row*row;i++) {
+			  neigh = Level.returnneighbors(i, row);
+			  for(int k = 0;k<neigh.size();k++) {
+				  g.drawLine(200,200,250,200);
+			  }
+		  
+	  }
+	  
   }
 }
