@@ -3,6 +3,7 @@ package components;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+import java.awt.*;
 
 public class draw_Grid{
 	static int[][] AdjMat;
@@ -23,7 +24,7 @@ public class draw_Grid{
 		  y_curr = Level.convert1Dto2D(i, 3)[1];
 		  neigh = Level.returnneighbors(i, 3);
 		  for( int j = 0; j<neigh.size(); j++) {
-	            if(neigh.get(j) == 0)
+	            if(AdjMat[i - 1][neigh.get(j) - 1] == 1)
 	                neigh.remove(j);
 	        }
 		  for(int neighbour:neigh) {
@@ -39,6 +40,8 @@ public class draw_Grid{
 			  }
 		  }
 	  }
-	  
+  }
+  public static void drawComponents(component components) {
+	  int squareside = 600;
   }
 }

@@ -39,9 +39,6 @@ public class Game implements Runnable {
 			return;
 		}
 		i++;
-		if(i == 3) {
-			running = false;
-		}
 		g = bs.getDrawGraphics();
 		g.fillRect(0, 0, 200, 200);
 		d = new draw_Grid(AdjMat, g, bs); 

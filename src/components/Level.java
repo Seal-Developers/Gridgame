@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 public class Level {
 //the level goes here
-	/*
+	/**
 	 *Returns the 2D Coordinate of a point in a integer array of length 2 
 	 *
 	 *@param x x position of the node
@@ -16,7 +16,7 @@ public class Level {
 	{
 		return (size * x) + y + 1;
 	}
-	/*
+	/**
 	 *Returns the 2D Coordinate of a point in a integer array of length 2 
 	 *@param singleCord coordinate of node
 	 *@param size is the size of the grid
@@ -29,7 +29,7 @@ public class Level {
 		ret[1] = singleCord - (size * ret[0]) -1;
 		return ret;
 	}
-	/*
+	/**
 	 *Returns the neighbors of a node in an arrayList of Integers
 	 *
 	 *@param singleCord coordinate of node
@@ -61,7 +61,7 @@ public class Level {
 		}
 		return neigh;
 	}
-	/*
+	/**
 	 * This method just sets and returns a 2D int adjacency
 	 * matrix of size (size^2)*(size^2). Where Aij = 0 if ij is not a edge
 	 * 								               = 1 if ij is a edge
@@ -94,7 +94,7 @@ public class Level {
 		}
 		return baseGraph;
 	}
-	/*
+	/**
 	 * This method just sets and returns a 2D int adjacency
 	 * matrix of size (size^2)*(size^2). Where Aij = 0 if ij is not a edge
 	 * 								               = 1 if ij is a edge
@@ -119,7 +119,7 @@ public class Level {
 		}
 		return PrimmsAlgorithm(copymap);
 	}
-	/*
+	/**
 	 * This method returns true iff (edge)u - v is not in Minimum Spanning Tree and 
 	 * exactly 1 of the edge is in Minimum Spanning Tree
 	 * 
@@ -140,11 +140,11 @@ public class Level {
 			return true; 
 		} 
 
-	/*
+	/**
 	 * This method returns minimum spanning tree for a graph using Primms 
 	 * Algorithm
 	 *  @param Weightedmap is the a undirectional weighted map 
-	 *  @return the Minimum SPanning Tree of Weightedmap
+	 *  @return the Minimum Spanning Tree of Weightedmap
 	 */
 	public static int[][] PrimmsAlgorithm(double[][] Wieghtedmap){
 		//
@@ -204,6 +204,20 @@ public class Level {
 	      no_edge++;
 	    }
 	    return level;
+	}
+	/**
+	 * Returns the possible moves on a Level for either character or enemy
+	 * 
+	 * @param Level The adjacency matrix of the Level.
+	 * @param vertex The vertex the enemy/character is currently on.
+	 * @return The possible validMoves on level Level about vertex.
+	 */
+	public static ArrayList<Integer> getAvailableSquare(int[][] Level, int vertex){
+		ArrayList<Integer> validMoves = new ArrayList<>();
+		for(int i = 0; i < Level[vertex].length; i++) {
+			validMoves.add(i+1);
+		}
+		return validMoves;
 	}
 	public static void main(String[] args)
 	{
