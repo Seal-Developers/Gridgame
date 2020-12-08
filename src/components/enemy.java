@@ -9,7 +9,8 @@ public class enemy extends component{
 	/**
 	 * the int array representing the enemy's position
 	 */
-	//every enemy has a location between 2 positions
+	//every enemy has a location between 2 nodes' positions
+	//so this is two 1D position of 2 nodes representing the enemy's position
 	//(0,0)=1, (0,1)=2
 	protected int[] twoPositions;
 
