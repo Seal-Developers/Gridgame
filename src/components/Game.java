@@ -42,7 +42,7 @@ public class Game implements Runnable {
 		int[][] AdjMat = makeLevel();
 		draw_Grid d = new draw_Grid(AdjMat, g, bs) ;
 		g.drawLine(200,200,250,200);
-		//d.drawLevel();
+		d.drawLevel();
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 200, 200);
 		//End Drawing!
@@ -55,6 +55,7 @@ public class Game implements Runnable {
 		init();
 		while(running){
 			tick();
+			render();
 			render();
 			running = false;
 			System.out.println("HI in run");
