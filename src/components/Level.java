@@ -40,8 +40,8 @@ public class Level {
 	{
 		ArrayList<Integer> neigh = new ArrayList<Integer>();
 		int flooredpoint = (int)Math.floor((singleCord - 1)/size); 
-		System.out.println("ebuyegu" + flooredpoint);
-		System.out.println("hahah" + (singleCord - (size * flooredpoint + 1)));
+		//System.out.println("ebuyegu" + flooredpoint);
+		//System.out.println("hahah" + (singleCord - (size * flooredpoint + 1)));
 		int[] currcod = Level.convert1Dto2D(singleCord, size);
 		if(singleCord - size  > 0)
 		{
@@ -85,7 +85,7 @@ public class Level {
 		for(int i = 1; i <= size * size; i++)
 		{
 			ArrayList<Integer> neigh = Level.returnneighbors(i, size);
-			System.out.println("The neighbors of " + i);
+			//System.out.println("The neighbors of " + i);
 			for(int j = 0; j < neigh.size(); j++)
 			{
 				System.out.println(neigh.get(j));
@@ -210,13 +210,13 @@ public class Level {
 		int singleCord = Level.convert2Dtonode(3, 3, 4);
 		int[] cord = new int[2];
 		cord = Level.convert1Dto2D(singleCord, 4);
-		System.out.println("The value of singleCord is " + singleCord + 
-				" The value of x and y is " + cord[0] + " / " + cord[1]);
+		//System.out.println("The value of singleCord is " + singleCord + 
+			//	" The value of x and y is " + cord[0] + " / " + cord[1]);
 		ArrayList<Integer> neigh = Level.returnneighbors(singleCord, 4);
-		System.out.println("The neighbors of " + singleCord);
+		//System.out.println("The neighbors of " + singleCord);
 		for(int i = 0; i < neigh.size(); i++)
 		{
-			System.out.println(neigh.get(i));
+			//System.out.println(neigh.get(i));
 		}
 		int[][] basemap = new int[9][9];
 		basemap = Level.setMatrix(3);

@@ -13,9 +13,11 @@ public class Game implements Runnable {
 	
 	private boolean running = false;
 	private Thread thread;
+	int i=0;
 	private BufferStrategy bs;
 	private Graphics g;
-	
+	int[][] AdjMat = Level.getLevel(Level.setMatrix(3));
+	draw_Grid d;
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
@@ -36,15 +38,17 @@ public class Game implements Runnable {
 			display.getCanvas().createBufferStrategy(3);
 			return;
 		}
-		System.out.println("HI in render");
+		i++;
+		if(i == 3) {
+			running = false;
+		}
 		g = bs.getDrawGraphics();
-		//Draw Here!
-		int[][] AdjMat = makeLevel();
-		draw_Grid d = new draw_Grid(AdjMat, g, bs) ;
-		g.drawLine(200,200,250,200);
-		d.drawLevel();
-		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 200, 200);
+		d = new draw_Grid(AdjMat, g, bs); 
+		Color customColor = new Color(10,250,250);
+		g.setColor(customColor);
+		//Draw Here!
+		d.drawLevel();
 		//End Drawing!
 		bs.show();
 		g.dispose();
@@ -56,11 +60,7 @@ public class Game implements Runnable {
 		while(running){
 			tick();
 			render();
-			render();
-			running = false;
-			System.out.println("HI in run");
 		}
-		
 		stop();
 		
 	}

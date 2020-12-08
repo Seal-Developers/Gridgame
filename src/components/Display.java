@@ -1,12 +1,13 @@
 package components;
 import java.awt.Canvas;
-
+import java.awt.Color;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
-public class Display {
+public class Display{
 
     private JFrame frame;
     private Canvas canvas;
