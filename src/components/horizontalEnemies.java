@@ -20,20 +20,16 @@ public class horizontalEnemies extends enemy{
 	/**
 	 * this move the H enemy to the goal position
 	 * it can only move within one certain row and can only move 1 square a time
-	 * goal position (a,b)
-	 * @param a an int of 1D position of one square next to the enemy
-	 * 		  b another int 1D position of the other square next to the enemy
+	 * @param a an int of 1D position of the goal enemy position
 	 */
 	@Override
-	public void move(int a,int b) {
+	public void move(int a) {
 		//ensure horizontal,same row and consecutive col
 		//the square should have same col and consecutive row value
 		//check if consecutive with origin
 		
-	    if((Math.abs(a-b) == this.graphSize)&&
-	       (a==this.twoPositions[0]||b==this.twoPositions[0]))
-				super.move(a, b);
+	    if((Math.abs(a-this.oneDPosition) == 1))
+				super.move(a);
 		System.out.println("not valid move");
-			
 	}
 }
