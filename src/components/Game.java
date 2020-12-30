@@ -18,6 +18,7 @@ public class Game implements Runnable {
 	private Graphics g;
 	int[][] AdjMat = Level.getLevel(Level.setMatrix(3));
 	draw_Grid d;
+	drawComponents d1;
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
@@ -42,10 +43,16 @@ public class Game implements Runnable {
 		g = bs.getDrawGraphics();
 		g.fillRect(0, 0, 200, 200);
 		d = new draw_Grid(AdjMat, g, bs); 
+		d1 = new drawComponents(AdjMat, g, bs);
 		Color customColor = new Color(10,250,250);
 		g.setColor(customColor);
 		//Draw Here!
 		d.drawLevel();
+		//draw components
+		character ch = new character(width);
+		d1.drawCharacter(ch);
+		d1.drawHE(null);
+		d1.drawVE(null);
 		//End Drawing!
 		bs.show();
 		g.dispose();
