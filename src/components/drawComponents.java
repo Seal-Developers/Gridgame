@@ -17,7 +17,7 @@ public class drawComponents{
 		this.g = g;
 		this.bs = bs;
 		//do something to set the font size
-		int fontSize = 10;
+		int fontSize = 20;
 		g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
 	}
 	

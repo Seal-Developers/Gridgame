@@ -9,6 +9,17 @@ public class character{
 	 */
 	private int oneDPosition;
 	private int Size;
+	//constructor
+	/**
+	* this create a new character object within a graph of size Size
+	* oneDPosition is an int representing the initial position of it(usually 1)
+	* @param Size an int representing the size of the graph where the character is in
+	*/
+	public character(int graphSize) {
+			this.Size = graphSize;
+			this.oneDPosition = 0;
+		}
+	
 	/**
 	 * move the character to another 1D position and check if it collapse or win
 	 * @param p an int representing the position goal
