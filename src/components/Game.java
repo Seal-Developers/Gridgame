@@ -10,13 +10,13 @@ public class Game implements Runnable {
 	private Display display;
 	public int width, height;
 	public String title;
-	
+	public static Color customColor = new Color(10,250,250);
 	private boolean running = false;
 	private Thread thread;
 	int i=0;
 	private BufferStrategy bs;
 	private Graphics g;
-	int[][] AdjMat = Level.getLevel(Level.setMatrix(3));
+	int[][] AdjMat = Level.getLevel(Level.setMatrix(8));
 	draw_Grid d;
 	drawComponents d1;
 	public Game(String title, int width, int height){
@@ -41,7 +41,7 @@ public class Game implements Runnable {
 		}
 		i++;
 		g = bs.getDrawGraphics();
-		g.fillRect(0, 0, 200, 200);
+		g.fillRect(0, 0, 600, 600);
 		d = new draw_Grid(AdjMat, g, bs); 
 		d1 = new drawComponents(AdjMat, g, bs);
 		Color customColor = new Color(10,250,250);
