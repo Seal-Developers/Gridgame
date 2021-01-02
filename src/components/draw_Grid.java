@@ -8,6 +8,7 @@ public class draw_Grid{
 	static int[][] AdjMat;
 	static Graphics g;
 	static BufferStrategy bs;
+	static int squareside = 50;
 	public draw_Grid(int[][] AdjMat, Graphics g, BufferStrategy bs) {
 		this.AdjMat = new int[AdjMat.length][AdjMat.length];
 		this.AdjMat = AdjMat;
@@ -30,7 +31,6 @@ public class draw_Grid{
 		}
 	  System.out.println();
 	  ArrayList<Integer> neigh = new ArrayList<Integer>();
-	  int squareside = 50;
 	  int gridSize = (int) Math.sqrt(row);
 	  g.setColor(cr1);
 	  g.drawLine(0, 0, squareside * (gridSize + 1), 0);

@@ -15,6 +15,7 @@ public class verticalEnemies extends enemy{
 	 */
 	public verticalEnemies(int graphSize) {
 		super(graphSize);
+		this.enemyString = "V";
 	}
 
 	/**

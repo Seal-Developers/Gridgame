@@ -9,7 +9,26 @@ public class character{
 	 */
 	private int oneDPosition;
 	private int Size;
-	//constructor
+	/**
+	 * Getter Method for oneDPosition
+	 * @return oneDPosition of Character
+	 */
+	public int getoneDPosition() {
+		return oneDPosition;
+	}
+	/**
+	 * Getter Method for Size
+	 * @return Size of the graph
+	 */
+	public int getSize() {
+		return Size;
+	}
+	/**
+	 * Setter Method for oneDPosition
+	 */
+	public void setoneDPosition(int position) {
+		this.oneDPosition = position;
+	}
 	/**
 	* this create a new character object within a graph of size Size
 	* oneDPosition is an int representing the initial position of it(usually 1)
@@ -17,7 +36,7 @@ public class character{
 	*/
 	public character(int graphSize) {
 			this.Size = graphSize;
-			this.oneDPosition = 0;
+			this.oneDPosition = 1;
 		}
 	
 	/**

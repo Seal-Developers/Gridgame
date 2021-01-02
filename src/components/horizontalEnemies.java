@@ -7,7 +7,6 @@ package components;
  *
  */
 public class horizontalEnemies extends enemy{
-	
 	/**
 	 * Constructor
 	 * this create a new horizontal enemy object within a graph of size graphSize
@@ -15,6 +14,7 @@ public class horizontalEnemies extends enemy{
 	 */
 	public horizontalEnemies(int graphSize) {
 		super(graphSize);
+		this.enemyString = "H";
 	}
 
 	/**

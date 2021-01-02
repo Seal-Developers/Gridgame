@@ -19,6 +19,7 @@ public class Game implements Runnable {
 	int[][] AdjMat = Level.getLevel(Level.setMatrix(8));
 	draw_Grid d;
 	drawComponents d1;
+	character ch;
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
@@ -32,7 +33,10 @@ public class Game implements Runnable {
 	private void tick(){
 		
 	}
-	
+	/**
+	 * This is the main game loop 
+	 * @throws InterruptedException 
+	 */
 	private void render(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
@@ -49,11 +53,16 @@ public class Game implements Runnable {
 		//Draw Here!
 		d.drawLevel();
 		//draw components
-		character ch = new character(width);
-		d1.drawCharacter(ch);
-		//enemy thing initialization
-		d1.drawHE(null);
-		d1.drawVE(null);
+		character ch = new character(8);
+		for(int i = 1; i <= 64; i++) {
+			ch.setoneDPosition(i);
+			d1.drawCharacter(ch);
+		}
+		enemy Enemy = new horizontalEnemies(8);
+		/*for(int i = 1; i <= 64; i++) {
+			Enemy.setoneDPosition(i);
+			d1.drawEnemy(Enemy);
+		}*/
 		//End Drawing!
 		bs.show();
 		g.dispose();
@@ -64,7 +73,7 @@ public class Game implements Runnable {
 		init();
 		while(running){
 			tick();
-			render();
+				render();
 		}
 		stop();
 		
