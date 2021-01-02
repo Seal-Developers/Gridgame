@@ -26,8 +26,6 @@ public class drawComponents{
 	 * @param ch the character to be drawn
 	 */
 	public void drawCharacter(character ch) {
-		if (ch==null)
-			return;
 		String character = new String("C");
 		//convert the current position of this character into the 2d on screen
 		int x, y;
@@ -70,5 +68,4 @@ public class drawComponents{
 		y = y + 25;
 		g.drawString(character, x, y);
 	}
-}
 }

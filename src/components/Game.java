@@ -7,8 +7,10 @@ import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
 
+
 	private Display display;
 	public int width, height;
+	public static int gridSize=8;
 	public String title;
 	public static Color customColor = new Color(10,250,250);
 	private boolean running = false;
@@ -16,7 +18,7 @@ public class Game implements Runnable {
 	int i=0;
 	private BufferStrategy bs;
 	private Graphics g;
-	int[][] AdjMat = Level.getLevel(Level.setMatrix(8));
+	int[][] AdjMat = Level.getLevel(Level.setMatrix(gridSize));
 	draw_Grid d;
 	drawComponents d1;
 	character ch;
@@ -24,6 +26,7 @@ public class Game implements Runnable {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		this.ch = new character(gridSize);
 	}
 	
 	private void init(){
@@ -53,7 +56,6 @@ public class Game implements Runnable {
 		//Draw Here!
 		d.drawLevel();
 		//draw components
-		character ch = new character(8);
 		for(int i = 1; i <= 64; i++) {
 			ch.setoneDPosition(i);
 			d1.drawCharacter(ch);
@@ -73,7 +75,7 @@ public class Game implements Runnable {
 		init();
 		while(running){
 			tick();
-				render();
+			render();
 		}
 		stop();
 		
