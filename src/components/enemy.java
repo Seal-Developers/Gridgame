@@ -1,5 +1,7 @@
 package components;
 
+import java.util.ArrayList;
+
 public class enemy{
 	/**
 	 * the int representing the enemy's position and a related graphSize of one side
@@ -45,4 +47,11 @@ public class enemy{
 		this.oneDPosition = a;
 	}
 	
+	//unfinished class
+	//return all the existing enemies
+	//size is number of enemies
+	public static ArrayList<enemy> makeEnemyList(int size){
+		//initialize the enemies here
+		return null;
+	}
 }

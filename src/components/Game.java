@@ -3,6 +3,7 @@ package components;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 
 public class Game implements Runnable {
@@ -22,11 +23,14 @@ public class Game implements Runnable {
 	draw_Grid d;
 	drawComponents d1;
 	character ch;
+	ArrayList<enemy> enemyList;
+	
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		this.ch = new character(gridSize);
+		this.enemyList = enemy.makeEnemyList(2); //number of enemies
 	}
 	
 	private void init(){
@@ -56,15 +60,15 @@ public class Game implements Runnable {
 		//Draw Here!
 		d.drawLevel();
 		//draw components
-		for(int i = 1; i <= 64; i++) {
+		/*for(int i = 1; i <= 64; i++) {
 			ch.setoneDPosition(i);
 			d1.drawCharacter(ch);
-		}
-		enemy Enemy = new horizontalEnemies(8);
-		/*for(int i = 1; i <= 64; i++) {
+		}*/
+		enemy Enemy = new verticalEnemies(8);
+		for(int i = 1; i <= 64; i++) {
 			Enemy.setoneDPosition(i);
 			d1.drawEnemy(Enemy);
-		}*/
+		}
 		//End Drawing!
 		bs.show();
 		g.dispose();
