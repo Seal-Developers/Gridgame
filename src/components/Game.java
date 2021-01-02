@@ -51,6 +51,7 @@ public class Game implements Runnable {
 		//draw components
 		character ch = new character(width);
 		d1.drawCharacter(ch);
+		//enemy thing initialization
 		d1.drawHE(null);
 		d1.drawVE(null);
 		//End Drawing!
