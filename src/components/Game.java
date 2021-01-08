@@ -29,7 +29,7 @@ public class Game implements Runnable {
 		this.width = width;
 		this.height = height;
 		this.title = title;
-		this.ch = new character(gridSize);
+		this.ch = character.createnewcharacter(gridSize);
 		this.enemyList = enemy.makeEnemyList(2); //number of enemies
 	}
 	

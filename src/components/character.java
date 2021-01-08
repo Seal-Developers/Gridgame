@@ -9,6 +9,7 @@ public class character{
 	 */
 	private int oneDPosition;
 	private int Size;
+	private static character character_reference = null;
 	/**
 	 * Getter Method for oneDPosition
 	 * @return oneDPosition of Character
@@ -34,11 +35,16 @@ public class character{
 	* oneDPosition is an int representing the initial position of it(usually 1)
 	* @param Size an int representing the size of the graph where the character is in
 	*/
-	public character(int graphSize) {
+	private character(int graphSize) {
 			this.Size = graphSize;
 			this.oneDPosition = 1;
 		}
-	
+	public static character createnewcharacter(int graphSize) {
+		if (character_reference == null) {
+			character_reference = new character(graphSize);
+		}
+		return character_reference;
+	}
 	/**
 	 * move the character to another 1D position and check if it collapse or win
 	 * @param p an int representing the position goal
