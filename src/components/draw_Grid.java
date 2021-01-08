@@ -33,18 +33,18 @@ public class draw_Grid{
 	  ArrayList<Integer> neigh = new ArrayList<Integer>();
 	  int gridSize = (int) Math.sqrt(row);
 	  g.setColor(cr1);
-	  g.drawLine(0, 0, squareside * (gridSize + 1), 0);
-	  g.drawLine(0, 0, 0, squareside * (gridSize + 1));
-	  g.drawLine(squareside * (gridSize + 1), 0, 
-			  squareside * (gridSize + 1), squareside * (gridSize + 1));
-	  g.drawLine(0,squareside * (gridSize + 1) , 
-			  squareside * (gridSize + 1), squareside * (gridSize + 1));
+	  g.drawLine(0, 0, squareside * (gridSize), 0);
+	  g.drawLine(0, 0, 0, squareside * (gridSize));
+	  g.drawLine(squareside * (gridSize), 0, 
+			  squareside * (gridSize), squareside * (gridSize));
+	  g.drawLine(0,squareside * (gridSize) , 
+			  squareside * (gridSize), squareside * (gridSize));
 	  Color customColor = new Color(10,250,250);
 	  g.setColor(customColor);
 	  	for(int i = 1; i<=row; i++) {
 	  	 if(i % gridSize == 0) {
 	  		 x_curr = gridSize*squareside;
-	  		 y_curr = (int) ((Math.ceil(i / gridSize) + 1)* squareside);
+	  		 y_curr = (int) ((Math.ceil(i / gridSize))* squareside);
 	  	 }
 	  	 else {
 		     x_curr = (i % gridSize) * squareside;
@@ -68,7 +68,7 @@ public class draw_Grid{
 			 else if(j - i == -1) {
 				  if(j % gridSize == 0) {
 				  		 x_curr = gridSize * squareside;
-				  		 y_curr = (int) ((Math.ceil(j / gridSize) + 1)* squareside);
+				  		 y_curr = (int) ((Math.ceil(j / gridSize))* squareside);
 				  	 }
 				  	 else {
 					     x_curr = (j % gridSize) * squareside;
@@ -84,7 +84,7 @@ public class draw_Grid{
 			  else {
 				  if(j % gridSize == 0) {
 				  		 x_curr = gridSize * squareside;
-				  		 y_curr = (int) ((Math.ceil(j / gridSize) + 1)* squareside);
+				  		 y_curr = (int) ((Math.ceil(j / gridSize))* squareside);
 				  	 }
 				  else {
 					   x_curr = (j % gridSize) * squareside;
@@ -97,7 +97,7 @@ public class draw_Grid{
 		      g.drawLine(x_curr , y_curr, x_neigh,  y_neigh);
 		      if(i % gridSize == 0) {
 			  		 x_curr = gridSize*squareside;
-			  		 y_curr = (int) ((Math.ceil(i / gridSize) + 1)* squareside);
+			  		 y_curr = (int) ((Math.ceil(i / gridSize))* squareside);
 			  	 }
 			  	 else {
 				     x_curr = (i % gridSize) * squareside;

@@ -64,7 +64,7 @@ public class Game implements Runnable {
 			ch.setoneDPosition(i);
 			d1.drawCharacter(ch);
 		}*/
-		enemy Enemy = new verticalEnemies(8);
+		enemy Enemy = new horizontalEnemies(8);
 		for(int i = 1; i <= 64; i++) {
 			Enemy.setoneDPosition(i);
 			d1.drawEnemy(Enemy);

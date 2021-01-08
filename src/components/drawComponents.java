@@ -40,8 +40,8 @@ public class drawComponents{
 		     x = ((position % gridSize) - 1) * squareside;
 		     y = (int) ((Math.ceil((position - 1)/ gridSize))* squareside);
 	  	 }
-		x = x + 25;
-		y = y + 25;
+		x = x + 15;
+		y = y + 35;
 		g.drawString(character, x, y);
 	}
 	/**
@@ -58,14 +58,14 @@ public class drawComponents{
 		int gridSize = Enemy.getSize();
 		if(position % gridSize == 0) {
 	  		 x = (gridSize - 1)*squareside;
-	  		 y = (int) ((position/gridSize -1)* squareside);
+	  		 y = (int) ((position/gridSize - 1)* squareside);
 	  	 }
 	  	 else {
 		     x = ((position % gridSize) - 1) * squareside;
 		     y = (int) ((Math.ceil((position - 1)/ gridSize))* squareside);
 	  	 }
-		x = x + 25;
-		y = y + 25;
+		x = x + 15;
+		y = y + 35;
 		g.drawString(character, x, y);
 	}
 }
